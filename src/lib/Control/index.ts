@@ -22,18 +22,22 @@ class Control {
 
     show() { 
         this.isVisible = true
+        this.rerender && this.rerender()
     }
 
     hide() {
         this.isVisible = false
+        this.rerender && this.rerender()
     }
 
     disable() {
         this.isDisabled = true
+        this.rerender && this.rerender()
     }
 
     enable() {
         this.isDisabled = false
+        this.rerender && this.rerender()
     }
 }
 
