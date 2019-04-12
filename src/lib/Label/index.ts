@@ -6,8 +6,6 @@ class Label extends Control {
     private textColor: string
     private backgroundColor: string
     private isRequired: boolean
-    private isDisabled: boolean
-    private isVisible: boolean
 
     constructor({
         text = "", 
@@ -24,12 +22,9 @@ class Label extends Control {
         this.isRequired = isRequired
         this.isDisabled = isDisabled
         this.isVisible = isVisible
-    }
 
-    render() {
-        const element = document.createElement('span')
-        element.innerHTML = this.text
-        return super.render(element)
+        this.element = document.createElement('span')
+        this.element.innerHTML = this.text
     }
 }
 
