@@ -58,7 +58,7 @@ class Label extends Control {
 
         this.element = document.createElement('div')
         this.element.classList.add('kuc-label')
-        
+        this.updateElement()
     }
 }
 
