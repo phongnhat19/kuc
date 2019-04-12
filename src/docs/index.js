@@ -6,3 +6,6 @@ const myLabel = new Label({text: 'hello'})
 document.body.appendChild(myLabel.render())
 
 myLabel.setText('123')
+myLabel.setRequired(true)
+myLabel.hide()
+myLabel.show()

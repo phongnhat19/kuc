@@ -63,6 +63,21 @@ class Label extends Control {
         this.text = text
         this.updateElement()
     }
+
+    setTextColor(color: string) {
+        this.textColor = color
+        this.updateElement()
+    }
+
+    setBackgroundColor(color: string) {
+        this.backgroundColor = color
+        this.updateElement()
+    }
+
+    setRequired(required: boolean) {
+        this.isRequired = required
+        this.updateElement()
+    }
 }
 
 export default Label
