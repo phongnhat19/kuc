@@ -7,9 +7,7 @@ class Label extends Control {
     private backgroundColor: string
     private isRequired: boolean
 
-    updateElement(){
-        this.element.innerHTML = ''
-
+    rerender(){
         if (!this.isVisible) {
             this.element.style.display = 'none'
         }
@@ -58,6 +56,11 @@ class Label extends Control {
 
         this.element = document.createElement('div')
         this.element.classList.add('kuc-label')
+        this.updateElement()
+    }
+
+    setText(text: string) {
+        this.text = text
         this.updateElement()
     }
 }

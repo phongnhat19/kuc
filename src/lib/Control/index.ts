@@ -2,6 +2,16 @@ class Control {
     isDisabled: boolean
     isVisible: boolean
     element: HTMLElement
+
+    rerender() {
+
+    }
+
+    updateElement() {
+        this.element.innerHTML = ''
+        this.rerender && this.rerender()
+    }
+
     render() {
         return this.element
     }
