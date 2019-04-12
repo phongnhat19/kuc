@@ -7,6 +7,39 @@ class Label extends Control {
     private backgroundColor: string
     private isRequired: boolean
 
+    updateElement(){
+        this.element.innerHTML = ''
+
+        if (!this.isVisible) {
+            this.element.style.display = 'none'
+        }
+        else {
+            this.element.style.display = 'initial'
+        }
+        
+        if (this.isRequired) {
+            let isRequiredSpan = document.createElement('span')
+            isRequiredSpan.classList.add('kuc-require')
+            isRequiredSpan.innerHTML = '*'
+
+            let textSpan = document.createElement('span')
+            textSpan.innerHTML = this.text
+            textSpan.style.color = this.textColor
+            textSpan.style.backgroundColor = this.backgroundColor
+            
+            this.element.appendChild(textSpan)
+            this.element.appendChild(isRequiredSpan)
+        }
+        else {
+            let textSpan = document.createElement('span')
+            textSpan.innerHTML = this.text
+            textSpan.style.color = this.textColor
+            textSpan.style.backgroundColor = this.backgroundColor
+            
+            this.element.appendChild(textSpan)
+        }
+    }
+
     constructor({
         text = "", 
         textColor = "#000000", 
@@ -23,8 +56,9 @@ class Label extends Control {
         this.isDisabled = isDisabled
         this.isVisible = isVisible
 
-        this.element = document.createElement('span')
-        this.element.innerHTML = this.text
+        this.element = document.createElement('div')
+        this.element.classList.add('kuc-label')
+        
     }
 }
 
