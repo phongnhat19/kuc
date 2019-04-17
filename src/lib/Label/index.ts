@@ -79,27 +79,27 @@ class Label extends Control {
 
         this.element = document.createElement('div')
         this.element.classList.add('kuc-label')
-        this.updateElement()
+        this.rerender()
     }
 
     setText(text: string):void {
         this.text = text
-        this.updateElement(['text'])
+        this.rerender(['text'])
     }
 
     setTextColor(color: string):void {
         this.textColor = color
-        this.updateElement(['textColor'])
+        this.rerender(['textColor'])
     }
 
     setBackgroundColor(color: string):void {
         this.backgroundColor = color
-        this.updateElement(['backgroundColor'])
+        this.rerender(['backgroundColor'])
     }
 
     setRequired(required: boolean):void {
         this.isRequired = required
-        this.updateElement(['isRequired'])
+        this.rerender(['isRequired'])
     }
 }
 

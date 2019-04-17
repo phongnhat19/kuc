@@ -18,10 +18,6 @@ class Control {
         }
     }
 
-    updateElement(changedAttr?: Array<string>) {
-        this.rerender && this.rerender(changedAttr)
-    }
-
     render() {
         return this.element
     }
@@ -34,22 +30,22 @@ class Control {
 
     show() { 
         this.isVisible = true
-        this.updateElement(['isVisible'])
+        this.rerender(['isVisible'])
     }
 
     hide() {
         this.isVisible = false
-        this.updateElement(['isVisible'])
+        this.rerender(['isVisible'])
     }
 
     disable() {
         this.isDisabled = true
-        this.updateElement(['isDisabled'])
+        this.rerender(['isDisabled'])
     }
 
     enable() {
         this.isDisabled = false
-        this.updateElement(['isDisabled'])
+        this.rerender(['isDisabled'])
     }
 }
 

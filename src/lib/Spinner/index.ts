@@ -20,7 +20,7 @@ class Spinner extends Control {
         this.element.className = 'kuc-spinner-outer'
         this.element.appendChild(spinnerElement)
 
-        this.updateElement()
+        this.rerender()
     } 
 }
 

@@ -31,7 +31,7 @@ class Button extends Control {
         if (this.isDisabled) {
             this.element.setAttribute('disabled', `${this.isDisabled}`)
         }
-        this.updateElement()
+        this.rerender()
     }
 }
 

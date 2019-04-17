@@ -19,10 +19,10 @@ class Alert extends Control {
 
         this.element = document.createElement('div')
         this.element.className = this._getClassName()
-        this.updateElement()
+        this.rerender()
     }
 
-    rerender(){
+    rerender(changedAttr?: Array<string>){
         super.rerender()
         this.element.innerHTML = this.text
     }
@@ -38,12 +38,12 @@ class Alert extends Control {
 
     setText(text: string):void {
         this.text = text
-        this.updateElement()
+        this.rerender(['text'])
     }
 
     setType(type: string):void {
         this.type = type
-        this.updateElement()
+        this.rerender(['type'])
     }
 }
 
