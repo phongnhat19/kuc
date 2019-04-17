@@ -7,9 +7,11 @@ document.body.appendChild(myLabel.render())
 
 myLabel.setText('123')
 myLabel.setRequired(true)
+myLabel.setRequired(false)
+myLabel.setRequired(true)
 myLabel.hide()
 myLabel.show()
-
+/* 
 const myAlert = new Alert({text: 'Network error', type: 'error'})
 myAlert.on('click', ()=>{
     alert(123)
@@ -27,4 +29,4 @@ const myButton = new Button({
 
 myButton.on('click',()=>alert('button clicked'))
 
-document.body.appendChild(myButton.render())
+document.body.appendChild(myButton.render()) */
