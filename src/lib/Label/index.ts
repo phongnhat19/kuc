@@ -9,6 +9,8 @@ class Label extends Control {
 
     rerender(){
         super.rerender()
+
+        this.element.innerHTML = ''
         
         if (this.isRequired) {
             let isRequiredSpan = document.createElement('span')

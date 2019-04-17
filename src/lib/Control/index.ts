@@ -11,11 +11,14 @@ class Control {
             else {
                 this.element.style.display = 'initial'
             }
+
+            if (this.isDisabled) {
+                this.element.setAttribute('disabled', `${this.isDisabled}`)
+            }
         }
     }
 
-    updateElement(keepContent?: boolean) {
-        if (!keepContent) this.element.innerHTML = ''
+    updateElement() {
         this.rerender && this.rerender()
     }
 
@@ -23,8 +26,10 @@ class Control {
         return this.element
     }
 
-    on(eventName: string, callback: () => void) {
-        this.element.addEventListener(eventName, callback)
+    on(eventName: string, callback: (e?: Event) => void) {
+        this.element.addEventListener(eventName,(e: Event)=>{
+            callback(e)
+        })
     }
 
     show() { 
