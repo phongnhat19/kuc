@@ -1,5 +1,5 @@
 //import {Dropdown, Dialog} from '../../build/lib/index';
-import {Label, Alert} from '../lib';
+import {Label, Alert, Spinner} from '../lib';
 
 const myLabel = new Label({text: 'hello'})
 
@@ -16,3 +16,6 @@ myAlert.on('click', ()=>{
 })
 
 document.body.appendChild(myAlert.render())
+
+const mySpinner = new Spinner({})
+document.body.appendChild(mySpinner.render())

@@ -14,8 +14,8 @@ class Control {
         }
     }
 
-    updateElement() {
-        this.element.innerHTML = ''
+    updateElement(keepContent?: boolean) {
+        if (!keepContent) this.element.innerHTML = ''
         this.rerender && this.rerender()
     }
 
