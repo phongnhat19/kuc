@@ -1,5 +1,5 @@
 //import {Dropdown, Dialog} from '../../build/lib/index';
-import {Label} from '../lib/index';
+import {Label, Alert} from '../lib';
 
 const myLabel = new Label({text: 'hello'})
 
@@ -9,3 +9,10 @@ myLabel.setText('123')
 myLabel.setRequired(true)
 myLabel.hide()
 myLabel.show()
+
+const myAlert = new Alert({text: 'Network error', type: 'error'})
+myAlert.on('click', ()=>{
+    alert(123)
+})
+
+document.body.appendChild(myAlert.render())
