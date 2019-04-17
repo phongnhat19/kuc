@@ -8,12 +8,7 @@ class Label extends Control {
     private isRequired: boolean
 
     rerender(){
-        if (!this.isVisible) {
-            this.element.style.display = 'none'
-        }
-        else {
-            this.element.style.display = 'initial'
-        }
+        super.rerender()
         
         if (this.isRequired) {
             let isRequiredSpan = document.createElement('span')
@@ -59,22 +54,22 @@ class Label extends Control {
         this.updateElement()
     }
 
-    setText(text: string) {
+    setText(text: string):void {
         this.text = text
         this.updateElement()
     }
 
-    setTextColor(color: string) {
+    setTextColor(color: string):void {
         this.textColor = color
         this.updateElement()
     }
 
-    setBackgroundColor(color: string) {
+    setBackgroundColor(color: string):void {
         this.backgroundColor = color
         this.updateElement()
     }
 
-    setRequired(required: boolean) {
+    setRequired(required: boolean):void {
         this.isRequired = required
         this.updateElement()
     }

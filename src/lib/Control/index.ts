@@ -4,7 +4,14 @@ class Control {
     element: HTMLElement
 
     rerender() {
-
+        if (this.element) {
+            if (!this.isVisible) {
+                this.element.style.display = 'none'
+            }
+            else {
+                this.element.style.display = 'initial'
+            }
+        }
     }
 
     updateElement() {
