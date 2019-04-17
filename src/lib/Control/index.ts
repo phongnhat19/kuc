@@ -3,7 +3,7 @@ class Control {
     isVisible: boolean
     element: HTMLElement
 
-    rerender() {
+    rerender(changedAttr?: Array<string>) {
         if (this.element) {
             if (!this.isVisible) {
                 this.element.style.display = 'none'
@@ -18,8 +18,8 @@ class Control {
         }
     }
 
-    updateElement() {
-        this.rerender && this.rerender()
+    updateElement(changedAttr?: Array<string>) {
+        this.rerender && this.rerender(changedAttr)
     }
 
     render() {
@@ -34,22 +34,22 @@ class Control {
 
     show() { 
         this.isVisible = true
-        this.updateElement()
+        this.updateElement(['isVisible'])
     }
 
     hide() {
         this.isVisible = false
-        this.updateElement()
+        this.updateElement(['isVisible'])
     }
 
     disable() {
         this.isDisabled = true
-        this.updateElement()
+        this.updateElement(['isDisabled'])
     }
 
     enable() {
         this.isDisabled = false
-        this.updateElement()
+        this.updateElement(['isDisabled'])
     }
 }
 

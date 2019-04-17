@@ -7,32 +7,58 @@ class Label extends Control {
     private backgroundColor: string
     private isRequired: boolean
 
-    rerender(){
+    private textElement: HTMLSpanElement | null
+    private requiredElement: HTMLSpanElement | null
+
+    rerender(changedAttr?: Array<string>){
         super.rerender()
 
-        this.element.innerHTML = ''
-        
-        if (this.isRequired) {
-            let isRequiredSpan = document.createElement('span')
-            isRequiredSpan.classList.add('kuc-require')
-            isRequiredSpan.innerHTML = '*'
+        if (!this.requiredElement) {
+            this.requiredElement = document.createElement('span')
+        }
 
-            let textSpan = document.createElement('span')
-            textSpan.innerHTML = this.text
-            textSpan.style.color = this.textColor
-            textSpan.style.backgroundColor = this.backgroundColor
-            
-            this.element.appendChild(textSpan)
-            this.element.appendChild(isRequiredSpan)
+        if (!this.textElement) {
+            this.textElement = document.createElement('span')
         }
-        else {
-            let textSpan = document.createElement('span')
-            textSpan.innerHTML = this.text
-            textSpan.style.color = this.textColor
-            textSpan.style.backgroundColor = this.backgroundColor
-            
-            this.element.appendChild(textSpan)
+
+        if (changedAttr) {
+            changedAttr.forEach((changeKey: string) => {
+                switch (changeKey) {
+                    case 'text':
+                        if (this.textElement) this.textElement.textContent = this.text
+                        break;
+                    case 'textColor':
+                        if (this.textElement) this.textElement.style.color = this.textColor
+                        break;
+                    case 'backgroundColor':
+                        if (this.textElement) this.textElement.style.backgroundColor = this.backgroundColor
+                        break;
+                    case 'isRequired':
+                        if (this.isRequired && this.requiredElement) {
+                            this.requiredElement.className = 'kuc-require'
+                            this.requiredElement.innerHTML = '*'
+                        }
+                        else {
+                            this.requiredElement = null
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            })
+            return
         }
+
+        if (this.isRequired) {
+            this.requiredElement.classList.add('kuc-require')
+            this.requiredElement.innerHTML = '*'
+        }
+        this.textElement.textContent = this.text
+        this.textElement.style.color = this.textColor
+        this.textElement.style.backgroundColor = this.backgroundColor
+        
+        this.element.appendChild(this.textElement)
+        this.element.appendChild(this.requiredElement)
     }
 
     constructor({
@@ -58,22 +84,22 @@ class Label extends Control {
 
     setText(text: string):void {
         this.text = text
-        this.updateElement()
+        this.updateElement(['text'])
     }
 
     setTextColor(color: string):void {
         this.textColor = color
-        this.updateElement()
+        this.updateElement(['textColor'])
     }
 
     setBackgroundColor(color: string):void {
         this.backgroundColor = color
-        this.updateElement()
+        this.updateElement(['backgroundColor'])
     }
 
     setRequired(required: boolean):void {
         this.isRequired = required
-        this.updateElement()
+        this.updateElement(['isRequired'])
     }
 }
 
