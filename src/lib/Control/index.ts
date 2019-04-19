@@ -9,7 +9,7 @@ class Control {
                 this.element.style.display = 'none'
             }
             else {
-                this.element.style.display = 'initial'
+                this.element.style.display = ''
             }
 
             if (this.isDisabled) {

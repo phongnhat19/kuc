@@ -1,17 +1,12 @@
 //import {Dropdown, Dialog} from '../../build/lib/index';
-import {Label, Alert, Spinner, Button} from '../lib';
+import {Label, Alert, Spinner, Button, IconButton, Dialog} from '../lib';
 
 const myLabel = new Label({text: 'hello'})
 
 document.body.appendChild(myLabel.render())
-
-myLabel.setText('123')
-myLabel.setRequired(true)
-myLabel.setRequired(false)
-myLabel.setRequired(true)
 myLabel.hide()
 myLabel.show()
-/* 
+
 const myAlert = new Alert({text: 'Network error', type: 'error'})
 myAlert.on('click', ()=>{
     alert(123)
@@ -29,4 +24,18 @@ const myButton = new Button({
 
 myButton.on('click',()=>alert('button clicked'))
 
-document.body.appendChild(myButton.render()) */
+document.body.appendChild(myButton.render())
+
+const myIconButton = new IconButton({type: 'insert',color:'blue', size: 'large'})
+myIconButton.on('click',()=>alert('icon button clicked'))
+document.body.appendChild(myIconButton.render())
+
+const myDialog = new Dialog({
+    header: "Dialog header",
+    content: "This is content",
+    footer: "Footer",
+    isVisible: true,
+    showCloseButton: true
+});
+
+document.body.appendChild(myDialog.render())
