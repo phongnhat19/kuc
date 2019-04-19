@@ -79,6 +79,26 @@ class IconButton extends Control {
         ];
         return className.join(' ').trim();
     };
+
+    setType(type: string):void {
+        this.type = type
+        this.rerender(['type'])
+    }
+
+    setSize(size: string):void {
+        this.size = size
+        this.rerender(['size'])
+    }
+
+    setShape(shape: string):void {
+        this.shape = shape
+        this.rerender(['shape'])
+    }
+
+    setColor(color: string):void {
+        this.color = color
+        this.rerender(['color'])
+    }
 }
 
 export default IconButton

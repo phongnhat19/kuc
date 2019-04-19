@@ -5,6 +5,8 @@ import Spinner from './Spinner'
 import Button from './Button'
 import IconButton from './IconButton'
 import Dialog from './Dialog'
+import Text from './Text'
+import TextArea from './TextArea'
 
 export {
     Alert,
@@ -12,5 +14,7 @@ export {
     Spinner,
     Button,
     IconButton,
-    Dialog
+    Dialog,
+    Text,
+    TextArea
 }

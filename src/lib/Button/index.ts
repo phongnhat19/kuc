@@ -33,6 +33,16 @@ class Button extends Control {
         }
         this.rerender()
     }
+
+    setType(type: string):void {
+        this.type = type
+        this.rerender(['type'])
+    }
+
+    setText(text: string):void {
+        this.text = text
+        this.rerender(['text'])
+    }
 }
 
 export default Button

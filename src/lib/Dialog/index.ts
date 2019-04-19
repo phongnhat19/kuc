@@ -67,6 +67,33 @@ class Dialog extends Control {
         
         this.rerender()
     }
+
+    setHeader(header:string | Element):void {
+        this.header = header
+        this.rerender(['header'])
+    }
+
+    getHeader():string | Element {
+        return this.header
+    }
+
+    setContent(content:string | Element):void {
+        this.content = content
+        this.rerender(['content'])
+    }
+
+    getContent():string | Element {
+        return this.content
+    }
+
+    setFooter(footer:string | Element):void {
+        this.footer = footer
+        this.rerender(['footer'])
+    }
+
+    getFooter():string | Element {
+        return this.footer
+    }
 }
 
 export default Dialog
